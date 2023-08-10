@@ -11,10 +11,20 @@
   },
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
+      "js": ["scripts/chromedocs.js"],
       "matches": [
         "https://developer.chrome.com/docs/extensions/*",
-        "https://developer.chrome.com/docs/webstore/*"
+        "https://developer.chrome.com/docs/webstore/*",
+        "https://developer.chrome.com/docs/devtools/*",
+        "https://developer.chrome.com/docs/workbox/*",
+        "https://developer.chrome.com/blog/*"
+      ]
+    },
+    {
+      "js": ["scripts/mdndocs.js"],
+      "matches": [
+        "https://developer.mozilla.org/*/docs/Learn/*/*/*",
+        "https://developer.mozilla.org/*/docs/Learn/*/*"
       ]
     }
   ]
