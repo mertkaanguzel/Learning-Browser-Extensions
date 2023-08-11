@@ -11,13 +11,13 @@ chrome.action.onClicked.addListener(async (tab) => {
   if (tab.url.startsWith(extensions) || tab.url.startsWith(webstore)) {
     const nextState = await setNextState(tab);
 
-    if (nextState === "ON") {
+    if (nextState === 'ON') {
       // Insert the CSS file when the user turns the extension on
       await chrome.scripting.insertCSS({
         files: ["focus-mode.css"],
         target: { tabId: tab.id },
       });
-    } else if (nextState === "OFF") {
+    } else if (nextState === 'OFF') {
       // Remove the CSS file when the user turns the extension off
       await chrome.scripting.removeCSS({
         files: ["focus-mode.css"],
@@ -29,13 +29,13 @@ chrome.action.onClicked.addListener(async (tab) => {
   if (tab.url.startsWith('https://developer.mozilla.org') && tab.url.includes('/docs')) {
     const nextState = await setNextState(tab);
 
-    if (nextState === "ON") {
+    if (nextState === 'ON') {
       // Execute func setElementsInvisible
       await chrome.scripting.executeScript({
         func: setElementsInvisible,
         target: { tabId: tab.id },
       });
-    } else if (nextState === "OFF") {
+    } else if (nextState === 'OFF') {
       // Execute func setElementsVisible
       await chrome.scripting.executeScript({
         func: setElementsVisible,
